@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Thalib</title>
 </head>
 <body>
-    <h1>Website Alquranku</h1>
 
-    <div class="alquran"></div>
+    <div class="preloader">
+        <div class="loader"></div>
+       <p id="pesanLoading">Memuat data Alquranku...</p> 
+    </div>
+
+    <h1>Website Alquranku</h1>
+    <input type="text" id="cariSurat" placeholder="Cari nama surat...">
+
+    <div id="alquran"></div>
 
     <script src="script.js"></script>
 </body>
