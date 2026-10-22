@@ -1,15 +1,19 @@
 const url = "https://equran.id/api/v2/surat"
 
 let = dataSurat = []
+tampikanLoading()
 
 fetch(url)
 .then(response => response.json()) 
 .then(hasil => {
 
     dataSurat = hasil.data
-    tampilkanSurat(dataSurat)
-    
 
+    tampilkanSurat(dataSurat)
+    hentikanLoading()
+
+}).finnally( () => {
+    hentikanLoading()
 })
  
 function tampilkanSurat( data ) {
@@ -25,6 +29,7 @@ function tampilkanSurat( data ) {
         <h2> Tempat Turun : ${surat.tempatTurun}</h2>
         <h2> Arti : ${surat.arti}</h2>
         <span> Deskripsi : ${surat.deskripsi}</span>  
+        <a href="baca.html?nomor=${surat.nomor}">Baca Surat</a>
         <hr>
         `
     }
@@ -39,3 +44,10 @@ document.getElementById("cariSurat").addEventListener("input", function(){
     })
     tampilkanSurat(hasilPencarian)
 })
+
+function tampikanLoading() {
+    document.querySelector('.preloader').style.display = 'flex'
+}
+function hentikanLoading() {
+    document.querySelector('.preloader').style.display = 'none'
+}
