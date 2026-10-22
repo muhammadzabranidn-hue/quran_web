@@ -7,6 +7,19 @@
     animation: putar 1s linear infinite;
 }
 
+.preloader{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+}
+
 @keyframes putar{
     0%{
         transform: rotate(0deg);
