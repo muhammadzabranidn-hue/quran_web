@@ -24,6 +24,7 @@ function tampilkanSurat( data ) {
         let surat = data[i]
         document.getElementById("alquran").innerHTML += `
         <h2> Nama : ${surat.nama}</h2>
+        <button onClick='bookmarkSurat(${surat.nomor})'> 🔖 Bookmark </button>
         <h2> Nama Latin : ${surat.namaLatin}</h2>
         <h2> Jumlah Ayat : ${surat.jumlahAyat}</h2>
         <h2> Tempat Turun : ${surat.tempatTurun}</h2>
@@ -50,4 +51,17 @@ function tampikanLoading() {
 }
 function hentikanLoading() {
     document.querySelector('.preloader').style.display = 'none'
+}
+
+function bookmarkSurat( nomor ) {
+    let bookmark = JSON.parse(localStorage.getItem("bookmark")) || []
+
+    if(bookmark.includes(nomor)) {
+        alert("Surat sudah ada di bookmark")
+    }else{
+        bookmark.push(nomor)
+
+        localStorage.setItem("bookmark", JSON.stringify(bookmark))
+        alert("Surat berhasil ditambahkan ke bookmark")
+    }
 }
