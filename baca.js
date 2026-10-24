@@ -6,6 +6,8 @@ fetch(`https://equran.id/api/v2/surat/${nomorSurat}`)
 .then(hasil => {
     let surat = hasil.data
 
+    document.getElementById("audioMurottal").src = surat.audioFull["06"]
+
     document.getElementById("namaSurat").innerHTML = surat.namaLatin
 
     for(let i = 0; i < surat.ayat.length; i++) {
@@ -17,4 +19,6 @@ fetch(`https://equran.id/api/v2/surat/${nomorSurat}`)
         <p>${ayat.teksIndonesia}</p>
         `
     }
+}).catch(error => {
+    console.log("Terjadi kesalahan: ", error)
 })
